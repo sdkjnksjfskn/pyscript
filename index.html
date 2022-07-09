@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>자기소개</title>
+  <meta charset="utf-8">
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  <py-script src="/script.py"></py-script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width">
+  <style>
+    body { font-family: 'Noto Sans KR', sans-serif; }
+    .hidden { display: none; }
+    .container {
+      background: white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      height: 58vmin;
+      width: 80vmin;
+      border-radius: 4vmin;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      filter: drop-shadow(3vmin 3vmin 3vmin rgba( 0, 0, 0, 0.15 ));
+      padding: 6vmin;
+    }
+    .hcontainer {
+      width: 80vmin;
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+    }
+    .vcontainer {
+      padding-left: 3vmin;
+      position: relative;
+      top: -0.7vmin;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .acontainer {
+      height: 40vmin;
+      width: 45vmin;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .fcontainer {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      top: 18vmin;
+    }
+    .profile {
+      height: 15vmin;
+      width: 15vmin;
+      border-radius: 100%;
+    }
+    .picture {
+      border-radius: 2vmin;
+      height: 40vmin;
+      width: 30vmin;
+    }
+    .major {
+      font-weight: 700;
+      font-size: 3vmin;
+    }
+    .minor {
+      padding-left: 1vmin;
+      font-weight: 500;
+      font-size: 3vmin;
+    }
+    #name {
+      font-weight: 700;
+      font-size: 8vmin;
+    }
+    #description {
+      font-weight: 500;
+      font-size: 3vmin;
+      position: relative;
+      top: -1vmin;
+    }
+    #button {
+      color: white;
+      background-color: black;
+      font-weight: 500;
+      font-size: 3vmin;
+      height: 7vmin;
+      width: 45vmin;
+      border-radius: 2vmin;
+      border: none;
+      margin-top: 0.6vmin;
+    }
+  </style>
+</head>
+
+<body>
+  <span class="hidden" id="g0">white</span>
+  <span class="hidden" id="g1">white</span>
+  <div class="container">
+    <div class="hcontainer">
+      <img src="/profile.png" class="profile">
+      <div class="vcontainer">
+        <span id="name">Loading...</span>
+        <span id="description">Loading...</span>
+      </div>
+    </div>
+    <div class="fcontainer">
+      <div class="acontainer">
+        <div class="tcontainer">
+          <span class="major" id="a0">Loading</span>
+          <span class="minor" id="b0">...</span>
+        </div>
+        <div class="tcontainer">
+          <span class="major" id="a1">Loading</span>
+          <span class="minor" id="b1">...</span>
+        </div>
+        <div class="tcontainer">
+          <span class="major" id="a2">Loading</span>
+          <span class="minor" id="b2">...</span>
+        </div>
+        <div class="tcontainer">
+          <span class="major" id="a3">Loading</span>
+          <span class="minor" id="b3">...</span>
+        </div>
+        <button id="button" pys-onClick="button">Loading...</button>
+      </div>    
+      <img src="/picture.png" class="picture">
+    </div>
+  </div>
+</body>
+  
+<script>
+  var status = 0;
+  function BackgroundReset(){
+    document.title = document.getElementById("name").innerText;
+    let gradient = document.getElementsByClassName("hidden");
+    document.getElementsByTagName("html")[0].style.background = "linear-gradient(90deg, " + gradient[0].innerText + ", " + gradient[1].innerText + ")";
+  }
+  if (status < 50) { status++; setInterval(BackgroundReset, 0.1); }
+</script>
+</html>
